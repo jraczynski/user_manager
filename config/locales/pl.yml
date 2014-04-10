@@ -231,3 +231,6 @@ pl:
         name: Nazwa użytkownika
         password: Hasło
         password_confirmation: Potwierdzenie hasła
+  will_paginate:
+    next_label: Następna strona
+    previous_label: Poprzednia strona
