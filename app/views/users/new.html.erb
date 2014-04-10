@@ -4,25 +4,7 @@
 <div class="row">
   <div class="span6 offset3">
     <%= form_for(@user) do |f| %>
-      <%= render 'shared/error_messages' %>
-
-      <%= f.label :first_name, "Imię" %>
-      <%= f.text_field :first_name %>
-
-      <%= f.label :last_name, "Nazwisko" %>
-      <%= f.text_field :last_name %>
-
-      <%= f.label :email, "Adres" %>
-      <%= f.text_field :email %>
-
-      <%= f.label :name, "Nazwa użytkownika" %>
-      <%= f.text_field :name %>
-
-      <%= f.label :password, "Hasło" %>
-      <%= f.password_field :password %>
-
-      <%= f.label :password_confirmation, "Potwierdzenie hasła" %>
-      <%= f.password_field :password_confirmation %>
+      <%= render 'fields', f: f %>
       </br>
       <%= f.submit "Dodaj użytkownika", class: "btn btn-large btn-primary" %>
     <% end %>
