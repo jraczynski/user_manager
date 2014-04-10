@@ -1,0 +1,6 @@
+<li>
+  <%= link_to user.first_name+" "+user.last_name, user %>
+   - <%=user.email%> - <%=user.name%>
+    | <%= link_to "Edytuj", edit_user_path(user) %>
+    | <%= link_to "Usuń", user, method: :delete, data: { confirm: "Na pewno?" } %>
+</li>
