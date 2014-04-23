@@ -9,7 +9,11 @@ class User < ActiveRecord::Base
 
   def self.search(search, select_column)
     if search
-      where("#{select_column} LIKE ?", "#{search}%")
+      if connection.adapter_name == 'PostgreSQL'
+        where("#{select_column} ILIKE ?", "#{search}%")
+      else
+        where("#{select_column} LIKE ?", "#{search}%")
+      end
     else
       all
     end
