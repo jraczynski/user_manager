@@ -3,7 +3,7 @@
 
 <%= form_tag users_path, method: 'get', id: "users_search" do %>
   <div id="search_form">
-    <%= text_field_tag :search, params[:search] %>
+    <%= text_field_tag :search, params[:search], placeholder: "Wprowadź dane" %>
     <%= select_tag("select_column", options_for_select([['Nazwisko', 'last_name'],
                  ['Imię', 'first_name'],['Adres e-mail','email'],['Nazwa użytkownika','name']], 'last_name')) %>
     <%= submit_tag "Szukaj", last_name: nil, class: "btn", id: "search_button" %>
