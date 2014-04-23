@@ -1,21 +1,13 @@
 <% provide(:title, 'Lista') %>
 <h1>Lista użytkowników</h1>
 
-<%= will_paginate %>
+<%= form_tag users_path, method: 'get', id: "users_search" do %>
+  <div id="search_form">
+    <%= text_field_tag :search, params[:search] %>
+    <%= select_tag("select_column", options_for_select([['Nazwisko', 'last_name'],
+                 ['Imię', 'first_name'],['Adres e-mail','email'],['Nazwa użytkownika','name']], 'last_name')) %>
+    <%= submit_tag "Szukaj", last_name: nil, class: "btn", id: "search_button" %>
+  </div>
 
-<table class="table table-striped table-bordered table-condensed">
-  <thead>
-    <tr>
-      <th><%= sortable "last_name", "Nazwisko" %></th>
-      <th><%= sortable "first_name", "Imię" %></th>
-      <th><%= sortable "email", "Adres e-mail" %></th>
-      <th><%= sortable "name", "Nazwa użytkownika" %></th>
-      <th>Profil</th>
-      <th>Edytuj</th>
-      <th>Usuń</th>
-    </tr>
-  </thead>
-  <%= render @users %>
-</table>
-
-<%= will_paginate %>
+  <div id="users"><%= render 'users' %></div>
+<% end %>

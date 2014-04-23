@@ -132,3 +132,23 @@ input {
 .table th .desc {
   background-image: image-url('down_arrow.gif');
 }
+
+/* search form */
+
+#search_form {
+  #search, #select_column, #search_button {
+    vertical-align: top;
+  }
+
+  #search {
+    width: 60%;
+  }
+
+  #select_column {
+    width: 30%;
+  }
+
+  #search_button {
+    
+  }
+}

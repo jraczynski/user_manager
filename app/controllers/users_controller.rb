@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   helper_method :sort_column, :sort_direction
 
   def index
-    @users = User.order(sort_column + " " + sort_direction).paginate(page: params[:page])
+    @users = User.search(params[:search],params[:select_column]).order(sort_column + " " + sort_direction).paginate(per_page: 20, page: params[:page])
   end
 
   def show

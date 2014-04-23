@@ -6,4 +6,12 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6 }
 
   has_secure_password
+
+  def self.search(search, select_column)
+    if search
+      where("#{select_column} LIKE ?", "%#{search}%")
+    else
+      scoped
+    end
+  end
 end
