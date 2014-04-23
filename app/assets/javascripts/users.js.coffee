@@ -18,3 +18,8 @@ jQuery ->
     $.get($("#users_search").attr("action"), $("#users_search").serialize(), null, 'script')
     false
   )
+  # Ajax search on select box change
+  $('#select_column').change( ->
+    $.get($("#users_search").attr("action"), $("#users_search").serialize(), null, 'script')
+    false
+  )
