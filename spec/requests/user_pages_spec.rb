@@ -16,15 +16,15 @@ describe "User pages" do
 
     describe "pagination" do
 
-      before(:all) { 50.times { FactoryGirl.create(:user) } }
+      before(:all) { 40.times { FactoryGirl.create(:user) } }
       after(:all)  { User.delete_all }
 
       it { should have_selector('div.pagination') }
 
       it "should list each user" do
-        User.paginate(page: 1).each do |user|
-          expect(page).to have_selector('td', text: user.first_name)
+        User.paginate(per_page: 20, page: 1).each do |user|
           expect(page).to have_selector('td', text: user.last_name)
+          expect(page).to have_selector('td', text: user.first_name)
           expect(page).to have_selector('td', text: user.email)
           expect(page).to have_selector('td', text: user.name)
         end
