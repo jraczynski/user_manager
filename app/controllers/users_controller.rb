@@ -1,7 +1,9 @@
 # encoding: UTF-8
 class UsersController < ApplicationController
+  helper_method :sort_column, :sort_direction
+
   def index
-    @users = User.paginate(page: params[:page])
+    @users = User.order(sort_column + " " + sort_direction).paginate(page: params[:page])
   end
 
   def show
@@ -46,5 +48,13 @@ class UsersController < ApplicationController
 
     def user_params
       params.require(:user).permit(:first_name, :last_name, :email, :name, :password, :password_confirmation)
+    end
+
+    def sort_column
+      User.column_names.include?(params[:sort]) ? params[:sort] : "last_name"
+    end
+  
+    def sort_direction
+      %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
     end
 end
