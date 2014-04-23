@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
 
   def self.search(search, select_column)
     if search
-      where("#{select_column} LIKE ?", "%#{search}%")
+      where("#{select_column} LIKE ?", "#{search}%")
     else
       scoped
     end
