@@ -8,3 +8,4 @@ User Manager
 * Delete user
 * Search by: first name, last name, e-mail or username
 * Sort columns by: first name, last name, e-mail or username
+* Search and Sort with jQuery Ajax
